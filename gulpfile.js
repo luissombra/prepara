@@ -16,7 +16,7 @@ var gulp = require('gulp'),
 
 //Paths to watch for changes using the watch task.
 var paths = {
-  jade: 'app/**/*.jade',
+  html: 'app/**/*.html',
   index: 'public/index.html',
   images: ['app/images/**/*'],
   scripts: {
@@ -36,11 +36,8 @@ var paths = {
 };
 
 //Compile Jade files to html and save them into the public directory.
-gulp.task('jade:compile', function () {
-  gulp.src(paths.jade)
-    .pipe(jade({
-      pretty: true
-    }))
+gulp.task('html:copy', function () {
+  gulp.src(paths.html)
     .pipe(gulp.dest('./public'));
 });
 
@@ -76,7 +73,7 @@ gulp.task('bower:run', function () {
 });
 
 //Inject bower scripts and custom scripts into /public/index.html.
-gulp.task('scripts:inject', ['jade:compile'], function () {
+gulp.task('scripts:inject', ['html:copy'], function () {
   gulp.src(paths.index)
     .pipe(wiredep())
     .pipe(gulpinject(gulp.src(paths.scripts.js), { relative: true }))
@@ -117,7 +114,7 @@ gulp.task('test:server:coverage', function () {
 
 //Watch for changes in files.
 gulp.task('watch', function () {
-  gulp.watch(paths.jade, ['jade:compile']);
+  gulp.watch(paths.html, ['template:copy']);
   gulp.watch(paths.compileScripts.js, ['js:minify']);
   gulp.watch(paths.compileScripts.css, ['css:minify']);
   gulp.watch(paths.index, ['scripts:inject']);
@@ -125,7 +122,7 @@ gulp.task('watch', function () {
 });
 
 //Default task.
-gulp.task('default', ['bower:run', 'jade:compile', 'js:minify', 'css:minify', 'scripts:inject', 'copy:images']);
+gulp.task('default', ['bower:run', 'html:copy', 'js:minify', 'css:minify', 'scripts:inject', 'copy:images']);
 
 //Dev environment task.
-gulp.task('dev', ['nodemon:run', 'bower:run', 'jade:compile', 'js:minify', 'css:minify', 'scripts:inject', 'watch', 'copy:images']);
+gulp.task('dev', ['nodemon:run', 'bower:run', 'html:copy', 'js:minify', 'css:minify', 'scripts:inject', 'watch', 'copy:images']);
