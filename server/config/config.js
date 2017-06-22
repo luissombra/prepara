@@ -1,6 +1,6 @@
 module.exports = {
 	development: {
-  	url: 'postgres://postgres:password@localhost:5432/bookmark',
+  	url: 'postgres://postgres:somepass@localhost:5432/preparadb',
   	dialect: 'postgres'
   },
   production: {
@@ -20,7 +20,7 @@ module.exports = {
     }
   },
   test: {
-    url: process.env.DATABASE_URL || 'postgres://postgres:password@localhost:5432/bookmark_test',
+    url: process.env.DATABASE_URL || 'postgres://postgres:somepass@localhost:5432/preparadb_test',
     dialect: 'postgres',
     logging: false
   }
