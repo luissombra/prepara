@@ -86,7 +86,7 @@ gulp.task('nodemon:run', function () {
   nodemon({
     script: 'index.js',
     ext: 'js html',
-    ignore: ['public/**', 'app/**', 'node_modules/**']
+    ignore: ['public/**', 'app/**', 'node_modules/**', 'db/**']
   });
 });
 
