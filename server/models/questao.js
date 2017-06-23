@@ -2,7 +2,7 @@
 module.exports = function(sequelize, DataTypes) {
 
   var Questao = sequelize.define('Questao', {
-    letra: DataTypes.STRING,
+    alternativa_correta: DataTypes.STRING,
     conteudo: DataTypes.TEXT
   }, {
     tableName: "questao",

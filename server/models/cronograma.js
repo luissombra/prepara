@@ -2,6 +2,7 @@
 module.exports = function(sequelize, DataTypes) {
 
   var Cronograma = sequelize.define('Cronograma', {
+    peso: DataTypes.DECIMAL
   }, {
   	tableName: "cronograma",
   	underscored: true,
