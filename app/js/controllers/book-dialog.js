@@ -1,4 +1,4 @@
-angular.module('Bookmark.controllers')
+angular.module('PreparaApp.controllers')
   .controller('BookDialogCtrl', ['$rootScope', '$scope', '$mdDialog', 'Toast', 'Books', 'bookDetails',
   function ($rootScope, $scope, $mdDialog, Toast, Books, bookDetails) {
     $scope.book = bookDetails;

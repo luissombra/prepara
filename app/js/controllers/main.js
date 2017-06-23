@@ -1,4 +1,4 @@
-angular.module('Bookmark.controllers')
+angular.module('PreparaApp.controllers')
 .controller('MainCtrl', ['$rootScope', '$scope', '$mdSidenav', '$mdDialog', 'Authors', 'Books', 'Toast',
 function ($rootScope, $scope, $mdSidenav, $mdDialog, Authors, Books, Toast) {
   

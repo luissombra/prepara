@@ -1,4 +1,4 @@
-angular.module('Bookmark.services')
+angular.module('PreparaApp.services')
   .factory('Books', ['$http', '$q', function ($http, $q) {
 
     return {

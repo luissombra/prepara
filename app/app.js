@@ -1,15 +1,16 @@
-angular.module('Bookmark.controllers', []);
-angular.module('Bookmark.services', []);
+angular.module('PreparaApp.controllers', []);
+angular.module('PreparaApp.services', []);
 
 //Inject dependencies to the Bookmark module.
-var Bookmark = angular.module('Bookmark', [
+var app = angular.module('PreparaApp', [
   'ngMaterial',
   'ngMdIcons',
-  'Bookmark.controllers',
-  'Bookmark.services'
+  'ui.router',
+  'PreparaApp.controllers',
+  'PreparaApp.services'
 ]);
 
-Bookmark
+app
   .config(['$mdThemingProvider', function ($mdThemingProvider) {
     //Set default theme
     $mdThemingProvider.theme('default')
