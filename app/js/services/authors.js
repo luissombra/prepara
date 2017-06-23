@@ -1,4 +1,4 @@
-angular.module('Bookmark.services')
+angular.module('PreparaApp.services')
   .factory('Authors', ['$http', '$q', function ($http, $q) {
     return {
       //Fetch all authors

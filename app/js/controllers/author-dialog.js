@@ -1,4 +1,4 @@
-angular.module('Bookmark.controllers')
+angular.module('PreparaApp.controllers')
   .controller('AuthorDialogCtrl', ['$rootScope', '$scope', '$mdDialog', 'Toast', 'Authors',
   function ($rootScope, $scope, $mdDialog, Toast, Authors) {
     //Save a new author

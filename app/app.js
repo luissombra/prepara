@@ -1,15 +1,16 @@
-angular.module('Bookmark.controllers', []);
-angular.module('Bookmark.services', []);
+angular.module('PreparaApp.controllers', []);
+angular.module('PreparaApp.services', []);
 
 //Inject dependencies to the Bookmark module.
-var Bookmark = angular.module('Bookmark', [
+var app = angular.module('PreparaApp', [
   'ngMaterial',
   'ngMdIcons',
-  'Bookmark.controllers',
-  'Bookmark.services'
+  'ui.router',
+  'PreparaApp.controllers',
+  'PreparaApp.services'
 ]);
 
-Bookmark
+app
   .config(['$mdThemingProvider', function ($mdThemingProvider) {
     //Set default theme
     $mdThemingProvider.theme('default')
@@ -20,4 +21,23 @@ Bookmark
     //Placeholder icon for author profile.
     $mdIconProvider
       .icon('author', './images/svg/person.svg');
+  }]);
+
+//configura as rotas
+app
+  .config(['$stateProvider', function($stateProvider){
+    var view1 = {
+      name: 'view1',
+      url: '/view1',
+      templateUrl: '/views/view1.html'
+    }
+
+    var view2 = {
+      name: 'view2',
+      url: '/view2',
+      templateUrl: '/views/view2.html'
+    }
+
+    $stateProvider.state(view1);
+    $stateProvider.state(view2);
   }]);
