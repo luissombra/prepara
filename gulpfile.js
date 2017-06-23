@@ -114,7 +114,7 @@ gulp.task('test:server:coverage', function () {
 
 //Watch for changes in files.
 gulp.task('watch', function () {
-  gulp.watch(paths.html, ['template:copy']);
+  gulp.watch(paths.html, ['html:copy']);
   gulp.watch(paths.compileScripts.js, ['js:minify']);
   gulp.watch(paths.compileScripts.css, ['css:minify']);
   gulp.watch(paths.index, ['scripts:inject']);
