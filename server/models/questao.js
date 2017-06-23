@@ -2,7 +2,8 @@
 module.exports = function(sequelize, DataTypes) {
 
   var Questao = sequelize.define('Questao', {
-    conteudo: DataTypes.TEXT,
+    letra: DataTypes.STRING,
+    conteudo: DataTypes.TEXT
   }, {
     tableName: "questao",
     underscored: true,
