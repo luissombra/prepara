@@ -22,3 +22,22 @@ app
     $mdIconProvider
       .icon('author', './images/svg/person.svg');
   }]);
+
+//configura as rotas
+app
+  .config(['$stateProvider', function($stateProvider){
+    var view1 = {
+      name: 'view1',
+      url: '/view1',
+      templateUrl: '/views/view1.html'
+    }
+
+    var view2 = {
+      name: 'view2',
+      url: '/view2',
+      templateUrl: '/views/view2.html'
+    }
+
+    $stateProvider.state(view1);
+    $stateProvider.state(view2);
+  }]);

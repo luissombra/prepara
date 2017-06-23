@@ -21,14 +21,19 @@
     <!--Sidenav-->
     <md-sidenav md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-z2">
       <md-toolbar>
-        <h1>Authors</h1>
+        <h1>Menu</h1>
       </md-toolbar>
       <md-content>
         <md-list>
           <!--Loop through the authors list-->
-          <md-list-item ng-repeat="author in authors">
-            <md-button ng-click="selectAuthor(author)">
-              <md-icon md-svg-icon="author" class="author_avatar"></md-icon><span ng-class="{selected: author === selectedAuthor}">{{author.name}}</span>
+          <md-list-item>
+            <md-button flex ui-sref="view1">
+              <span>View1</span>
+            </md-button>
+          </md-list-item>
+          <md-list-item>
+            <md-button flex ui-sref="view2">
+              <span>View2</span>
             </md-button>
           </md-list-item>
         </md-list>
@@ -47,54 +52,17 @@
       <md-toolbar layout="row">
         <div class="md-toolbar-tools">
           <md-button hide-gt-sm aria-label="Menu" ng-click="toggleSidenav()" class="md-button-icon">
-            <ng-md-icon icon="view_module" class="authors"></ng-md-icon>
+            <ng-md-icon icon="menu" class="authors"></ng-md-icon>
+
           </md-button>
-          <h1>Bookmark</h1>
+          <h1>Prepara</h1>
         </div>
       </md-toolbar>
       <!--Main content-->
       <md-content class="md-default-theme">
-        <div class="md-padding">
-          <h2 ng-show="selectedAuthor.Books.length">Books by {{selectedAuthor.name}}</h2>
-          <div class="author_actions">
-            <md-button aria-label="view_profile" ng-click="showAuthorProfile($event)" class="author_profile md-fab md-raised md-primary md-mini">
-              <ng-md-icon icon="person">
-                <md-tooltip direction="bottom">View {{selectedAuthor.name}}'s profile</md-tooltip>
-              </ng-md-icon>
-            </md-button>
-            <md-button aria-label="new_book" ng-click="newBookDialog($event)" class="new_book md-fab md-raised md-primary md-mini">
-              <ng-md-icon icon="my_library_add">
-                <md-tooltip direction="bottom">Add new book by {{selectedAuthor.name}}</md-tooltip>
-              </ng-md-icon>
-            </md-button>
-          </div>
+        <div class="md-padding" ui-view>
+
         </div>
-        <md-content layout="column" class="md-padding">
-          <md-card ng-repeat="book in selectedAuthor.Books">
-            <div layout="row" layout-align="end">
-              <!--Edit and Delete Books-->
-              <div class="books_menu">
-                <md-button aria-label="edit" ng-click="editBook($event, book)" class="md-fab md-raised md-mini">
-                  <ng-md-icon icon="edit"></ng-md-icon>
-                  <md-tooltip direction="bottom">edit book details</md-tooltip>
-                </md-button>
-                <md-button aria-label="delete" ng-click="deleteBook($event, book)" class="md-fab md-raised md-mini">
-                  <ng-md-icon icon="delete"></ng-md-icon>
-                  <md-tooltip direction="bottom">delete book</md-tooltip>
-                </md-button>
-              </div>
-            </div>
-            <md-card-title>
-              <md-card-title-text><span class="md-headline">{{book.name}}</span><span class="md-subhead">Publication date: {{ book.publication_date | date: mediumDate}}</span></md-card-title-text>
-            </md-card-title>
-            <md-card-content>
-              <div class="md-subhead">{{book.description}}</div>
-              <md-chips>
-                <md-chip>ISBN Number: {{ book.isbn}}</md-chip>
-              </md-chips>
-            </md-card-content>
-          </md-card>
-        </md-content>
       </md-content>
     </div>
     <!-- bower:js-->
