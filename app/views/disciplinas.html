@@ -1,0 +1,17 @@
+    <div flex-xs flex-gt-xs="100" layout="column">
+      <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" ng-repeat="d in disciplinas" md-theme-watch>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">{{d.nome}}</span>
+            <span class="md-subhead">cico: 1h | horas estudadas: 10h</span>
+          </md-card-title-text>
+          <md-card-title-media>
+            <div class="md-media-sm card-media"></div>
+          </md-card-title-media>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button ui-sref="estudar({id: d.id})">Estudar</md-button>
+          <md-button ui-sref="simulado({id: d.id})">Simulado</md-button>
+        </md-card-actions>
+      </md-card>
+    </div>

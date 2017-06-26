@@ -1,0 +1,39 @@
+    <div flex-xs flex-gt-xs="100" layout="column">
+      <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Estudar ({{disciplina.nome}})</span>
+            <span class="md-subhead">
+              <md-button>
+                <ng-md-icon icon="play_arrow">
+                  <md-tooltip direction="top">Começar</md-tooltip>
+                </ng-md-icon>
+              </md-button>
+              <md-button>
+                <ng-md-icon icon="pause">
+                  <md-tooltip direction="top">Pausar</md-tooltip>
+                </ng-md-icon>
+              </md-button>
+              <md-button>
+                <ng-md-icon icon="stop">
+                  <md-tooltip direction="top">Parar</md-tooltip>
+                </ng-md-icon>
+              </md-button>
+              <span>resta: 1 min.</span>
+            </span>
+          </md-card-title-text>
+          <md-card-title-media>
+            <div class="md-media-sm card-media"></div>
+          </md-card-title-media>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+        </md-card-actions>
+        <md-progress-linear md-mode="determinate" value="20"></md-progress-linear>
+      </md-card>
+
+      <md-card md-theme-watch>
+        <md-card-content>
+          <p ng-repeat="m in materiais">{{m.conteudo}}</p>
+        </md-card-content>
+      </md-card>
+    </div>

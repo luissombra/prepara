@@ -86,7 +86,7 @@ gulp.task('nodemon:run', function () {
   nodemon({
     script: 'index.js',
     ext: 'js html',
-    ignore: ['public/**', 'app/**', 'node_modules/**', 'db/**']
+    ignore: ['public/**', 'node_modules/**', 'db/**']
   });
 });
 
@@ -122,7 +122,7 @@ gulp.task('watch', function () {
 });
 
 //Default task.
-gulp.task('default', ['bower:run', 'html:copy', 'js:minify', 'css:minify', 'scripts:inject', 'copy:images']);
+gulp.task('default', ['bower:run', 'js:minify', 'css:minify', 'scripts:inject', 'copy:images', 'html:copy']);
 
 //Dev environment task.
-gulp.task('dev', ['nodemon:run', 'bower:run', 'html:copy', 'js:minify', 'css:minify', 'scripts:inject', 'watch', 'copy:images']);
+gulp.task('dev', ['nodemon:run', 'bower:run', 'js:minify', 'css:minify', 'scripts:inject', 'watch', 'copy:images', 'html:copy']);

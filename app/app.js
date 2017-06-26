@@ -32,12 +32,68 @@ app
       templateUrl: '/views/view1.html'
     }
 
-    var view2 = {
-      name: 'view2',
-      url: '/view2',
-      templateUrl: '/views/view2.html'
+    var curso = {
+      name: 'curso',
+      url: '/curso',
+      templateUrl: '/views/curso.html',
+      controller: 'CursoCtrl',
+      resolve: {
+        cursos: ['Cursos', function(Cursos){
+          return Cursos.all();
+        }]
+      }
+    }
+
+    var disciplinas = {
+      name: 'disciplinas',
+      url: '/disciplinas',
+      templateUrl: '/views/disciplinas.html',
+      controller: 'DisciplinasCtrl',
+      resolve: {
+        disciplinas: ['Disciplinas', function(Disciplinas){
+          return Disciplinas.all();
+        }]
+      }
+    }
+
+    var simulado = {
+      name: 'simulado',
+      url: '/simulado/:id',
+      templateUrl: '/views/simulado.html',
+      controller: 'SimuladoCtrl',
+      resolve: {
+        disciplina: ['Disciplinas', '$stateParams', function(Disciplinas, $stateParams){
+          return Disciplinas.one($stateParams.id);
+        }]
+      }
+    }
+
+    var estudar = {
+      name: 'estudar',
+      url: '/estudar/:id',
+      templateUrl: '/views/estudar.html',
+      controller: 'EstudarCtrl',
+      resolve: {
+        disciplina: ['Disciplinas', '$stateParams', function(Disciplinas, $stateParams){
+          return Disciplinas.one($stateParams.id);
+        }]
+      }
+    }
+
+    var desempenho = {
+      name: 'desempenho',
+      url: '/desempenho',
+      templateUrl: '/views/desempenho.html',
+      controller: 'DesempenhoCtrl',
+      resolve: {
+
+      }
     }
 
     $stateProvider.state(view1);
-    $stateProvider.state(view2);
+    $stateProvider.state(curso);
+    $stateProvider.state(disciplinas);
+    $stateProvider.state(simulado);
+    $stateProvider.state(estudar);
+    $stateProvider.state(desempenho);
   }]);
